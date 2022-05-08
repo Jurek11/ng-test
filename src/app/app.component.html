@@ -1,0 +1,29 @@
+<form [formGroup]="form">
+  <h1 class="title">title: {{ 1 + 2 }}</h1>
+  <mat-form-field appearance="fill">
+    <mat-label>Input</mat-label>
+    <input type="number" matInput formControlName="control1">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Input</mat-label>
+    <input type="number" matInput formControlName="control2">
+  </mat-form-field>
+  <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSum()">Сумма</button>
+  <h1 class="title">Result: {{ result }}</h1>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Leave a comment</mat-label>
+    <textarea matInput placeholder="Ex. It makes me feel..." rows="10" formControlName="controlText"></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="onTitleCase()">Title Case</button>
+
+  result by junior+: <br> {{resultText}}
+
+  <hr>
+
+  result angular expert limited edition+: <br>
+  {{ form?.get('controlText')?.value | titlecase }}
+
+</form>
+<pre>{{form.value | json}}</pre>
